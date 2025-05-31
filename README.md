@@ -46,7 +46,7 @@ This repo contains my Workshop 1-5 deliverables for the DA376B course
 
 ### Deliverables
 
-- **Project folder** under Git: [`main` branch on GitHub](https://github.com/yourusername/DA376B_Workshop1)  
+- **Project folder** under Git: [`main` branch on GitHub]([https://github.com/yourusername/DA376B_Workshop1](https://github.com/Sakyey/Workshop_1to5andGame.git))  
 - **Level**: `Workshop1_Level.umap` showing the placed cube  
 - **C++ class**: `Source/DA376B_Workshop1/PlayerCharacter.*`  
 - **Blueprint**: `Content/Blueprints/BP_PlayerCharacter.uasset`  
