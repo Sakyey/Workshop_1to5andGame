@@ -23,6 +23,7 @@ APlayerCharacter::APlayerCharacter()
 	SpringArm->SetupAttachment(GetRootComponent());
 	//Distance from the character
 	SpringArm->TargetArmLength=300.0f;
+	
 	//Let the controller rotate the arm
 	SpringArm->bUsePawnControlRotation=true;
 
