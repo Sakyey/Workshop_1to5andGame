@@ -218,33 +218,33 @@
       - **OnClicked (Button_Quit)** → **Quit Game** (Target = **Get Owning Player**).
    5. **Compile & Save** `WBP_MainMenu`.
 
-3. **Create Main Menu Level (`MainMenu_Level`)**
+3. **Create Main Menu Level (`Workshop3_MainMenu`)**
 
-   1. **File → New Level → Default** → **Save As** → `Content/Maps/MainMenu_Level.umap`.
+   1. **File → New Level → Default** → **Save As** → `Content/Maps/Workshop3_MainMenu.umap`.
    2. **Level Blueprint** (Open Level Blueprint):
       - **Event BeginPlay** → **Create Widget (Class = WBP_MainMenu)** → **Add to Viewport**.
       - **Get Player Controller (0)** → **Set Show Mouse Cursor = true**.
    3. **World Settings (MainMenu_Level)**:
-      - Under **GameMode Override**, set to `BP_MainMenuGameMode` (Default Pawn = None).
+      - Under **GameMode Override**, set to `GM_MainMenu` (Default Pawn = None).
    4. **Project Settings → Maps & Modes** (or override per-map):
-      - **Editor Startup Map** = `MainMenu_Level`
-      - **Game Default Map** = `MainMenu_Level`
-      - **Default GameMode** for `MainMenu_Level` = `BP_MainMenuGameMode`
+      - **Editor Startup Map** = `Workshop3_MainMenu`
+      - **Game Default Map** = `Workshop3_MainMenu`
+      - **Default GameMode** for `Workshop3_MainMenu` = `GM_MainMenu`
 
 4. **BP_MainMenuGameMode**
 
-   - In `Content/Blueprints`, create a **Blueprint Class → GameModeBase** → name it `BP_MainMenuGameMode`.
+   - In `Content/Blueprints`, create a **Blueprint Class → GameModeBase** → name it `GM_MainMenu`.
    - **Class Defaults**: set **Default Pawn Class = None** (no player pawn in the Main Menu).
 
 5. **Workshop 2 Level Configuration**
 
    - Open `Content/Maps/Workshop2_Level.umap`.
-   - In **World Settings**, set **GameMode Override** to `BP_GameMode_Workshop` (the Workshop 2 GameMode with Default Pawn = `BP_PlayerCharacter`).
+   - In **World Settings**, set **GameMode Override** to `GM_Workshop` (the Workshop 2 GameMode with Default Pawn = `BP_PlayerCharacter`).
    - Save the level.
 
-6. **Score HUD Widget (`WBP_ScoreHUD`)**
+6. **Score HUD Widget (`WBP_Score`)**
 
-   1. In `Content/UI`, right-click → **User Interface → Widget Blueprint** → name it `WBP_ScoreHUD`.
+   1. In `Content/UI`, right-click → **User Interface → Widget Blueprint** → name it `WBP_Score`.
    2. **Designer**:
       - Drag a **Text** widget onto the Canvas, anchor to top-left, set **Position (X=10, Y=10)**.
       - Set the Text’s default content to “Score: 0” and check **Is Variable**.
@@ -253,7 +253,7 @@
       - Select `Text_ScoreLabel` → in Details → **Content → Bind → Create Binding**.
       - In the generated function (`Get_Text_ScoreLabel_Text_0`):
         - **Get Owning Player Pawn** → **Cast to BP_PlayerCharacter** → **Get Score** → **Conv_IntToText** → **Append (“Score: ”)** → **Return**.
-   4. **Compile & Save** `WBP_ScoreHUD`.
+   4. **Compile & Save** `WBP_Score`.
 
 7. **Expose `Score` in BP_PlayerCharacter**
 
@@ -280,12 +280,12 @@
 
 - **Widget Blueprints (Content/UI/)**
   - `WBP_MainMenu.uasset` (Main Menu with Start/Quit logic)
-  - `WBP_ScoreHUD.uasset` (HUD Text bound to `BP_PlayerCharacter.Score`)
+  - `WBP_Score.uasset` (HUD Text bound to `BP_PlayerCharacter.Score`)
 - **Levels (Content/Maps/)**
-  - `MainMenu_Level.umap` (Main Menu world, Level Blueprint spawns `WBP_MainMenu`)
+  - `Workshop3_MainMenu.umap` (Main Menu world, Level Blueprint spawns `WBP_MainMenu`)
   - `Workshop2_Level.umap` (Workshop 2 level, set to `BP_GameMode_Workshop`)
 - **Blueprints (Content/Blueprints/)**
-  - `BP_MainMenuGameMode.uasset` (GameModeBase, Default Pawn None)
+  - `GM_MainMenu.uasset` (GameModeBase, Default Pawn None)
   - `BP_PlayerCharacter.uasset` (updated to expose `Score`, create HUD widget, bind input context)
 - **Input & Mapping (Content/Input/)**
   - `IA_Move`, `IA_Look`, `IA_Jump`, `IMC_Player` (from Workshop 2)
