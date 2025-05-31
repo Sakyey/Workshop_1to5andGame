@@ -181,7 +181,7 @@
 - **Level**:
   - `Content/Maps/Workshop2_Level.umap` demonstrating movement, camera look, and jump
 - **Video**:  
-  ![Workshop 2 Gameplay](Source/Workshop_1to5andGame/docs/workshop2video.mp4)  
+  ![Workshop 2 Gameplay](Source/Workshop_1to5andGame/docs/workshop2gif.gif)  
   _(Play-In-Editor capture showing character moving/rotating)_
 - **GitHub**:  
   All new assets and code committed to the repository (e.g., [`https://github.com/Sakyey/Workshop_1to5andGame/tree/main`](https://github.com/Sakyey/Workshop_1to5andGame/tree/main))
