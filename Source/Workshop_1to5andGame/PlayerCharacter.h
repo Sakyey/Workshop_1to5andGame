@@ -48,6 +48,6 @@ public:
 private:
 UPROPERTY(EditAnywhere,Category="Health")
 float HP{};
-UFUNCTION(BlueprintCallable, Category="Health")
+UFUNCTION(BlueprintCallable)
 void PrintHealth();
 };
