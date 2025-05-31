@@ -91,4 +91,11 @@ void APlayerCharacter::Look(const FInputActionValue& Value){
 	AddControllerYawInput(LookVector.X);
 	AddControllerYawInput(LookVector.Y);
 }
+void APlayerCharacter::PrintHealth(){
+	if(GEngine){
+		GEngine->AddOnScreenDebugMessage(-1,15.f,FColor::Cyan,FString::Printf(TEXT("Current Health: %f"),HP));
+	}
+
+	UE_LOG(LogTemp,Warning, TEXT("Current health: %f"), HP);
+}
 
