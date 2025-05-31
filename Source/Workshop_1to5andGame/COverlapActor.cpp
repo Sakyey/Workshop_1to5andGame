@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BP_PlayerCharacter.h"
+#include "PlayerCharacter.h"
 #include "Components/SphereComponent.h"
 #include "Engine/Engine.h"
 #include "COverlapActor.h"
@@ -44,7 +44,7 @@ void ACOverlapActor::OnBeginOverlap(
 	bool bFromSweep,
 	const FHitResult& SweepResult){
 
-		if(OtherActor  && OtherActor->IsA<ABP_PlayerCharacter>()){
+		if(OtherActor  && OtherActor->IsA<PlayerCharacter>()){
 			if(GEngine){
 				GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Green,TEXT("C++ Overlap with player"));
 			}
