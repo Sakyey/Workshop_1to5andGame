@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "InteractionInterface.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -25,7 +26,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	class USpringArmComponent* SpringArm;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta = (AllowPrivateAccess = "true"));
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
 	//Enhanced input actions (set in the blueprint)
@@ -43,6 +44,7 @@ protected:
 	//HAndlers
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void Interact();
 
 public:	
 	// Called every frame

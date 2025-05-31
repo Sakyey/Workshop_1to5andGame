@@ -9,7 +9,8 @@
 #include "InputMappingContext.h"
 #include "InputAction.h"
 #include "GameFramework/PlayerController.h"
-#include "EnhancedInputComponent.h"
+#include "DrawDebugHelpers.h"
+#include "InteractionInterface.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -73,6 +74,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 			EIC->BindAction(IA_Jump,ETriggerEvent::Triggered,this,&ACharacter::Jump);
 			EIC->BindAction(IA_Jump,ETriggerEvent::Completed,this,&ACharacter::StopJumping);
 		}
+		if(IA_Interact){
+			EIC->BindAction(IA_Interact, ETriggerEvent::Triggered, this, &APlayerCharacter::Interact)
+		}
 	}
 
 }
@@ -98,5 +102,60 @@ void APlayerCharacter::PrintHealth(){
 	}
 
 	UE_LOG(LogTemp,Warning, TEXT("Current health: %f"), HP);
+}
+void APlayerCharacter::Interact(){
+	FVector CameraLocation;
+	FRotator = CameraRotation;
+	if(APlayerCharacter*PC=Cast<APlayerController>(GetController())){
+		PC->GetPlayerViewPoint(CameraLocation,CameraRotation);
+	}else{
+		return;
+	}
+		// 2. Compute Start & End for line trace (1000 units forward)
+	FVector ForwardVector = CameraRotation.Vector();
+	FVector Start = CameraLocation;
+	FVector End = Start + (ForwardVector * 1000.0f);
+
+	// 3. (Optional) Draw debug line so you can see the trace in-game
+	DrawDebugLine(
+		GetWorld(),
+		Start,
+		End,
+		FColor::Blue,
+		false,
+		2.0f,   // Duration
+		0,
+		1.0f
+	);
+
+	// 4. Perform line trace (Visibility channel)
+	FHitResult HitResult;
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this); // Ignore self
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(
+		HitResult,
+		Start,
+		End,
+		ECC_Visibility,
+		QueryParams
+	);
+
+	// 5. If we hit something, test if it implements our interface
+	if (bHit && HitResult.GetActor())
+	{
+		AActor* HitActor = HitResult.GetActor();
+
+		// First ensure actor is valid
+		if (IsValid(HitActor))
+		{
+			// Check if it implements BPI_Interaction
+			if (HitActor->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()))
+			{
+				// Call the Interact() function on that actor
+				IInteractionInterface::Execute_Interact(HitActor);
+			}
+		}
+	}
 }
 
