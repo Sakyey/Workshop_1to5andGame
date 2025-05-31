@@ -50,4 +50,7 @@ UPROPERTY(EditAnywhere,Category="Health")
 float HP{};
 UFUNCTION(BlueprintCallable)
 void PrintHealth();
+UPROPERTY(EditAnywhere,Category="Score")
+int SCORE{};
+
 };
