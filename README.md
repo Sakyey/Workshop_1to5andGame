@@ -56,6 +56,6 @@
 - **Level**: `Workshop1_Level.umap` showing the placed cube
 - **C++ class**: `Source/DA376B_Workshop1/PlayerCharacter.*`
 - **Blueprint**: `Content/Blueprints/BP_PlayerCharacter.uasset`
-- **Screenshot**: GitHub commit history after initial push (see ![Initial commit history](docs/githistriy.png))
+- **Screenshot**: GitHub commit history after initial push (see ![Initial commit history](Source/Workshop_1to5andGame/docs/githistriy.png))
 
 ---
