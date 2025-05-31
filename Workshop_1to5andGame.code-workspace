@@ -1,0 +1,3383 @@
+{
+	"folders": [
+		{
+			"name": "UE5",
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off",
+		"terminal.integrated.env.windows": {
+			"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+			"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+			"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+			"DOTNET_MULTILEVEL_LOOKUP": "0",
+			"DOTNET_ROLL_FORWARD": "LatestMajor"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "UnrealEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"UnrealEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"UnrealEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"UnrealEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"UnrealGame Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"UnrealGame Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"UnrealGame Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"UnrealGame Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"UnrealGame Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "UnrealGame Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"UnrealGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"Workshop_1to5andGame Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"Workshop_1to5andGame Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"Workshop_1to5andGame Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"Workshop_1to5andGame Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Test",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build",
+					"Workshop_1to5andGame Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGame Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGame",
+					"Win64",
+					"Shipping",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"Workshop_1to5andGameEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Debug",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"Workshop_1to5andGameEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"DebugGame",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"ShaderCompileWorker Win64 Development Build",
+					"Workshop_1to5andGameEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Workshop_1to5andGameEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"Workshop_1to5andGameEditor",
+					"Win64",
+					"Development",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"UnrealBuildTool Win64 Development Build"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5"
+				}
+			},
+			{
+				"label": "Android.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Android\\Android.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Android.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Android\\Android.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Android.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Android\\Android.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Android.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Android\\Android.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Apple.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Apple\\Apple.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Apple.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Apple\\Apple.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Apple.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Apple\\Apple.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Apple.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Apple\\Apple.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationScripts.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Scripts\\AutomationScripts.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationScripts.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Scripts\\AutomationScripts.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationScripts.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Scripts\\AutomationScripts.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationScripts.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Scripts\\AutomationScripts.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool+Scripts Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\DotNET\\AutomationTool\\AutomationTool.exe",
+				"args": [
+					"-list"
+				],
+				"dependsOn": [
+					"AutomationTool Win64 Debug Build"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationTool+Scripts Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\DotNET\\AutomationTool\\AutomationTool.exe",
+				"args": [
+					"-list"
+				],
+				"dependsOn": [
+					"AutomationTool Win64 Development Build"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationUtils.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationUtils\\AutomationUtils.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationUtils.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationUtils\\AutomationUtils.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationUtils.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationUtils\\AutomationUtils.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "AutomationUtils.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\AutomationUtils\\AutomationUtils.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "BuildGraph.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\BuildGraph\\BuildGraph.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "BuildGraph.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\BuildGraph\\BuildGraph.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "BuildGraph.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\BuildGraph\\BuildGraph.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "BuildGraph.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\BuildGraph\\BuildGraph.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CookedEditor.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CookedEditor\\CookedEditor.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CookedEditor.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CookedEditor\\CookedEditor.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CookedEditor.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CookedEditor\\CookedEditor.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CookedEditor.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CookedEditor\\CookedEditor.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CrowdinLocalization.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CrowdinLocalization\\CrowdinLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CrowdinLocalization.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CrowdinLocalization\\CrowdinLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CrowdinLocalization.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CrowdinLocalization\\CrowdinLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "CrowdinLocalization.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\CrowdinLocalization\\CrowdinLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Gauntlet.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Gauntlet\\Gauntlet.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Gauntlet.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Gauntlet\\Gauntlet.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Gauntlet.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Gauntlet\\Gauntlet.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Gauntlet.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Gauntlet\\Gauntlet.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "IOS.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\IOS\\IOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "IOS.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\IOS\\IOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "IOS.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\IOS\\IOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "IOS.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\IOS\\IOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Linux.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Linux\\Linux.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Linux.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Linux\\Linux.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Linux.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Linux\\Linux.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Linux.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Linux\\Linux.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Localization.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Localization\\Localization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Localization.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Localization\\Localization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Localization.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Localization\\Localization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Localization.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Localization\\Localization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "LowLevelTests.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\LowLevelTests\\LowLevelTests.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "LowLevelTests.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\LowLevelTests\\LowLevelTests.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "LowLevelTests.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\LowLevelTests\\LowLevelTests.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "LowLevelTests.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\LowLevelTests\\LowLevelTests.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Mac.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Mac\\Mac.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Mac.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Mac\\Mac.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Mac.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Mac\\Mac.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Mac.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Mac\\Mac.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "OneSkyLocalization.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\OneSkyLocalization\\OneSkyLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "OneSkyLocalization.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\OneSkyLocalization\\OneSkyLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "OneSkyLocalization.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\OneSkyLocalization\\OneSkyLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "OneSkyLocalization.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\OneSkyLocalization\\OneSkyLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "ScriptGeneratorUbtPlugin.ubtplugin Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Plugins\\ScriptPlugin\\Source\\ScriptGeneratorUbtPlugin\\ScriptGeneratorUbtPlugin.ubtplugin.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "ScriptGeneratorUbtPlugin.ubtplugin Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Plugins\\ScriptPlugin\\Source\\ScriptGeneratorUbtPlugin\\ScriptGeneratorUbtPlugin.ubtplugin.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "ScriptGeneratorUbtPlugin.ubtplugin Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Plugins\\ScriptPlugin\\Source\\ScriptGeneratorUbtPlugin\\ScriptGeneratorUbtPlugin.ubtplugin.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "ScriptGeneratorUbtPlugin.ubtplugin Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Plugins\\ScriptPlugin\\Source\\ScriptGeneratorUbtPlugin\\ScriptGeneratorUbtPlugin.ubtplugin.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SmartlingLocalization.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SmartlingLocalization\\SmartlingLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SmartlingLocalization.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SmartlingLocalization\\SmartlingLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SmartlingLocalization.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SmartlingLocalization\\SmartlingLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SmartlingLocalization.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SmartlingLocalization\\SmartlingLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SteamDeck.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SteamDeck\\SteamDeck.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SteamDeck.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SteamDeck\\SteamDeck.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SteamDeck.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SteamDeck\\SteamDeck.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "SteamDeck.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\SteamDeck\\SteamDeck.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "TVOS.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\TVOS\\TVOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "TVOS.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\TVOS\\TVOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "TVOS.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\TVOS\\TVOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "TVOS.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\TVOS\\TVOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Turnkey.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Turnkey\\Turnkey.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Turnkey.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Turnkey\\Turnkey.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Turnkey.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Turnkey\\Turnkey.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Turnkey.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Turnkey\\Turnkey.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "UnrealBuildTool Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "UnrealBuildTool Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "UnrealBuildTool Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "UnrealBuildTool Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "VisionOS.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Platforms\\VisionOS\\Source\\Programs\\AutomationTool\\VisionOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "VisionOS.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Platforms\\VisionOS\\Source\\Programs\\AutomationTool\\VisionOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "VisionOS.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Platforms\\VisionOS\\Source\\Programs\\AutomationTool\\VisionOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "VisionOS.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Platforms\\VisionOS\\Source\\Programs\\AutomationTool\\VisionOS.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Win.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Win\\Win.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Win.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Win\\Win.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Win.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Win\\Win.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "Win.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\Win\\Win.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "XLocLocalization.Automation Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\XLocLocalization\\XLocLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "XLocLocalization.Automation Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Debug",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\XLocLocalization\\XLocLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "XLocLocalization.Automation Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"build",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\XLocLocalization\\XLocLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			},
+			{
+				"label": "XLocLocalization.Automation Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+				"args": [
+					"clean",
+					"--configuration",
+					"Development",
+					"D:\\UE_5.5\\Engine\\Source\\Programs\\AutomationTool\\XLocLocalization\\XLocLocalization.Automation.csproj"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\UE_5.5",
+					"env": {
+						"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+						"DOTNET_MULTILEVEL_LOOKUP": "0",
+						"DOTNET_ROLL_FORWARD": "LatestMajor"
+					}
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch UnrealEditor (Debug)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "UnrealEditor Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealEditor (DebugGame)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "UnrealEditor Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealEditor (Development)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "UnrealEditor Win64 Development Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealGame (Debug)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "UnrealGame Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealGame (DebugGame)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "UnrealGame Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealGame (Development)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "UnrealGame Win64 Development Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealGame (Test)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "UnrealGame Win64 Test Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch UnrealGame (Shipping)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "UnrealGame Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGame (Debug)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Workshop_1to5andGame\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "Workshop_1to5andGame Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGame (DebugGame)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Workshop_1to5andGame\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "Workshop_1to5andGame Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGame (Development)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Workshop_1to5andGame\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "Workshop_1to5andGame Win64 Development Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGame (Test)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Workshop_1to5andGame\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "Workshop_1to5andGame Win64 Test Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGame (Shipping)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Workshop_1to5andGame\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "Workshop_1to5andGame Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGameEditor (Debug)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "Workshop_1to5andGameEditor Win64 Debug Build",
+				"args": [
+					"Workshop_1to5andGame"
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGameEditor (DebugGame)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "Workshop_1to5andGameEditor Win64 DebugGame Build",
+				"args": [
+					"Workshop_1to5andGame"
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "Launch Workshop_1to5andGameEditor (Development)",
+				"request": "launch",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "Workshop_1to5andGameEditor Win64 Development Build",
+				"args": [
+					"Workshop_1to5andGame"
+				],
+				"cwd": "D:\\UE_5.5",
+				"stopAtEntry": false,
+				"console": "integratedTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\UE_5.5\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\UE_5.5"
+				}
+			},
+			{
+				"name": "AutomationTool (Debug)",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "AutomationTool+Scripts Win64 Debug Build",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\DotNET\\AutomationTool\\AutomationTool.exe",
+				"args": [
+					"-NoCompile"
+				],
+				"env": {
+					"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\UE_5.5"
+			},
+			{
+				"name": "AutomationTool (Development)",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "AutomationTool+Scripts Win64 Development Build",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\DotNET\\AutomationTool\\AutomationTool.exe",
+				"args": [
+					"-NoCompile"
+				],
+				"env": {
+					"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\UE_5.5"
+			},
+			{
+				"name": "UnrealBuildTool (Debug)",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Debug Build",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe",
+				"args": [
+				],
+				"env": {
+					"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\UE_5.5"
+			},
+			{
+				"name": "UnrealBuildTool (Development)",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "D:\\UE_5.5\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.exe",
+				"args": [
+				],
+				"env": {
+					"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\UE_5.5"
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "D:\\UE_5.5\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=D:\\UE_5.5\\Workshop_1to5andGame\\Workshop_1to5andGame.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"env": {
+					"PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64;${env:PATH}",
+					"DOTNET_ROOT": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64",
+					"DOTNET_HOST_PATH": "D:\\UE_5.5\\Engine\\Binaries\\ThirdParty\\DotNet\\8.0.300\\win-x64\\dotnet.exe",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "integratedTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\UE_5.5"
+			}
+		]
+	}
+}
