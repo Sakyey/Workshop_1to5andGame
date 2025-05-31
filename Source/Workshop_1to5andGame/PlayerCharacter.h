@@ -25,7 +25,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	class USpringArmComponent* SpringArm;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Catergory="Camera")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	class UCameraComponent* FollowCamera;
 
 	//Enhanced input actions (set in the blueprint)
