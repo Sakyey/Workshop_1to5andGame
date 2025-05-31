@@ -36,6 +36,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputAction* IA_Jump;
 	UPROPERTY(EditDefaultsOnly, Category="Input")
+	class UInputAction* IA_Interact;
+	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputMappingContext* IMC_Player;
 
 	//HAndlers
