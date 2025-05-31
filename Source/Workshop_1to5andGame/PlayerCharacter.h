@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
-#include "InteractionInterface.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -37,14 +36,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputAction* IA_Jump;
 	UPROPERTY(EditDefaultsOnly, Category="Input")
-	class UInputAction* IA_Interact;
-	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputMappingContext* IMC_Player;
 
 	//HAndlers
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
-	void Interact();
 
 public:	
 	// Called every frame
