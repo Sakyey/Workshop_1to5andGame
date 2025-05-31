@@ -295,3 +295,235 @@
 - **GitHub**:
   - All new assets committed (branch `main`):  
     [`https://github.com/Sakyey/Workshop_1to5andGame`](https://github.com/Sakyey/Workshop_1to5andGame) (verify Workshop 3 commits present)
+
+## Workshop 4
+
+### Objective
+
+- Add a playable Skeletal Mesh (Remy from Mixamo) and Animation Blueprint (AnimBP) to your existing `BP_PlayerCharacter`
+- Create a 1D Blend Space that blends Idle, Walk, and Run animations based on character speed
+- Extend the AnimBP’s state machine to handle Jump and Land states (OnGround → InAir → Land → OnGround)
+- Hook up the character’s velocity/acceleration variables so the mesh plays the correct animation at the right time
+
+> **Note:** All changes are made directly in the existing project. You will continue using the Main Menu → Workshop2_Level setup from Workshops 1–3. When you click “Start” in the Main Menu, Workshop2_Level will now spawn a Remy-character with full Idle/Walk/Run/Jump/Land animations.
+
+---
+
+### Steps
+
+#### 1. Prepare and Import Mixamo Animations
+
+1. **Obtain Loopable AnimSequences for Remy**
+
+   - On [Mixamo.com](https://www.mixamo.com), select the **Remy** character.
+   - Download these five animations (Format = **FBX 7.4 Binary**, Pose = **T-Pose**, Skin = **unchecked**):
+     - **Idle**
+     - **Walk**
+     - **Run**
+     - **Jump** (in-air clip)
+     - **Land** (landing clip)
+
+2. **Import Animation FBX Files into Unreal**
+
+   - In the Content Browser, create (if needed):
+     ```
+     Content/
+       ├─ Anim/Mixamo/
+     ```
+   - Drag each FBX file (Idle.fbx, Walk.fbx, Run.fbx, Jump.fbx, Land.fbx) into `Content/Anim/Mixamo/`.
+   - In the **FBX Import Options**:
+     - **Import Mesh**: ⬜ unchecked (we only need the Animation)
+     - **Import Animations**: ✔ checked
+     - **Skeleton**: select the **Remy_Skeleton** (Unreal will detect and list the Remy skeleton if you already imported Remy’s mesh; otherwise, import Remy’s T-pose FBX first to create `Remy_Skeleton`).
+   - Click **Import**. You should now see five new AnimSequence assets:
+     ```
+     Idle, Walk, Run, Jump, Land
+     ```
+
+3. **Verify Skeleton Compatibility**
+   - Open each AnimSequence (Idle, Walk, Run, Jump, Land) and confirm in the Details panel that **Skeleton** = `Remy_Skeleton`.
+
+---
+
+#### 2. Add the Remy Skeletal Mesh to BP_PlayerCharacter
+
+1. **Open** `BP_PlayerCharacter` (Blueprint Editor).
+2. **Add/Replace the Mesh Component**
+   - In Components, add a **Skeletal Mesh** component named `Mesh` (if none already exists).
+   - In Details → **Skeletal Mesh**, select the **Remy** mesh asset.
+   - Under **Animation**, leave **Anim Class** blank for now (we’ll assign the AnimBP later).
+   - In **Transform**, set **Location = (0, 0, -90)** and **Rotation = (0, -90, 0)** so Remy’s feet align with the Capsule.
+3. **Compile & Save**.
+
+---
+
+#### 3. Create the Idle↔Walk↔Run Blend Space for Remy
+
+1. **Create Folder (if needed)**
+
+   - Ensure there’s `Content/Anim/BlendSpace/` in the Content Browser.
+
+2. **New Blend Space 1D**
+
+   - Right-click in `Content/Anim/BlendSpace/` → **Animation → Blend Space 1D**.
+   - When prompted, choose `Remy_Skeleton`.
+   - Name it:
+     ```
+     BS_Remy_IdleWalkRun
+     ```
+
+3. **Configure Blend Parameters** (Details panel):
+
+   - **Parameter Name**: `Speed`
+   - **Axis Min**: `0.0`
+   - **Axis Max**: `600.0` (match Remy’s CharacterMovement Max Walk Speed)
+   - **Grid Divisions**: `2` (snap points at 0, 300, 600)
+   - Click **Apply**.
+
+4. **Place Sample Animations**:
+
+   - Drag **Idle** onto X = 0.0 (far left).
+   - Drag **Walk** onto X = 300.0 (middle).
+   - Drag **Run** onto X = 600.0 (far right).
+
+5. **Preview** by moving the slider (0 → 150 → 300 → 450 → 600) to verify smooth blending.
+6. **Save & Close** the Blend Space.
+
+---
+
+#### 4. Build the Animation Blueprint (ABP_Remy)
+
+1. **Create Folder (if needed)**
+
+   - Ensure there’s `Content/Anim/AnimBP/`.
+
+2. **New Animation Blueprint**
+
+   - Right-click in `Content/Anim/AnimBP/` → **Animation → Animation Blueprint**.
+   - Select `Remy_Skeleton`.
+   - Name it:
+     ```
+     ABP_Remy
+     ```
+
+3. **Event Graph** (compute Speed, IsFalling, and IsAccelerating)
+
+   - **Variables**:
+
+     - `Speed` (Float)
+     - `IsFalling` (Boolean)
+     - `IsAccelerating` (Boolean)
+
+   - In **Event Blueprint Update Animation**:
+
+     1. **Try Get Pawn Owner → Cast to BP_PlayerCharacter → (As BP_PlayerCharacter)**
+     2. From **As BP_PlayerCharacter → Get Velocity** → **Vector Length** → **Set Speed**.
+     3. From **As BP_PlayerCharacter → Get Character Movement → Is Falling** → **Set IsFalling**.
+     4. From **As BP_PlayerCharacter → Get Character Movement → Get Current Acceleration** (Vector)
+        - Drag off Vector → **Not Equal (Vector)** → second input = **Make Vector(0,0,0)** → **Set IsAccelerating**.
+
+   - (Optional) Insert **Print String** after each Set to verify values during runtime.
+
+4. **AnimGraph → MainState State Machine**
+
+   - Drag off **Result (Final Animation Pose)** → **Add State Machine** → name it `MainState`.
+
+5. **Inside MainState**:
+
+   - **Add Three States**:  
+     a. `OnGround`  
+     b. `InAir`  
+     c. `Land`
+
+   - **OnGround State**:
+
+     - Double-click **OnGround** → inside, drag off from **Entry** → **Blend Space Player (1D)** →
+       - In Details, set **Blend Space to Play** = `BS_Remy_IdleWalkRun`.
+       - Connect **“X” (Speed)** input to the `Speed` variable.
+       - Connect **Blend Space Player → Output Pose**.
+     - **Save & Go Back**.
+
+   - **InAir State**:
+
+     - Double-click **InAir** → inside, drag off **Entry** → **Play Animation** → set **Anim to Play** = `Jump` (Looping = false).
+     - Connect **Play Animation → Output Pose**.
+     - **Save & Go Back**.
+
+   - **Land State**:
+     - Double-click **Land** → inside, drag off **Entry** → **Play Animation** → set **Anim to Play** = `Land` (Looping = false).
+     - Connect **Play Animation → Output Pose**.
+     - **Save & Go Back**.
+
+6. **Set Up Transitions**:
+
+   - **OnGround → InAir**:
+
+     - Draw arrow from **OnGround** → **InAir**.
+     - Double-click the arrow → in the rule graph, drag **Get IsFalling** → connect to **Result** (true triggers jump).
+
+   - **InAir → Land**:
+
+     - Draw arrow from **InAir** → **Land**.
+     - Double-click the arrow → rule graph: drag **Get IsFalling** → **Not Boolean (NOT)** → connect to **Result** (landing begins when IsFalling becomes false).  
+       _(Optionally add “AND Get Relevant Anim Time Remaining Ratio ≤ 0.3” for more precise sync.)_
+
+   - **Land → OnGround**:
+     - Draw arrow from **Land** → **OnGround**.
+     - Select that transition arrow → in Details, check **Automatic Rule Based on Sequence Player in State** (so when the Land clip finishes, it automatically returns to OnGround).
+
+7. **Compile & Save** the Animation Blueprint.
+
+---
+
+#### 5. Assign ABP_Remy to the Character Mesh
+
+1. **Open** `BP_PlayerCharacter`.
+2. Select the **Mesh** component.
+3. In Details → **Animation → Anim Class**, choose `ABP_Remy`.
+4. **Compile & Save**.
+
+---
+
+#### 6. Test Animations in Workshop2_Level
+
+1. **Press Play** from the Main Menu.
+   - Main Menu appears → click **Start** → Workshop2_Level loads.
+2. **At Rest** (Speed = 0): Remy stands in the Idle pose.
+3. **Hold W/A/S/D**: Remy’s `Speed` increases → BlendSpace smoothly transitions Idle → Walk → Run.
+4. **Press Space (Jump)**: `IsFalling` becomes true → transition to **InAir** (Jump animation plays).
+5. **Land**: When Remy touches the ground, `IsFalling` becomes false → transition to **Land** (Land animation plays).
+6. **After Land finishes**, the **Automatic** rule returns to **OnGround**, and the BlendSpace (Idle/Walk/Run) resumes.
+
+---
+
+### Deliverables
+
+- **Blend Space**
+
+  - `Content/Anim/BlendSpace/BS_Remy_IdleWalkRun.uasset` (Idle at Speed=0, Walk at Speed≈300, Run at Speed≈600)
+
+- **Animation Blueprint**
+
+  - `Content/Anim/AnimBP/ABP_Remy.uasset`
+    - Event Graph updates `Speed`, `IsFalling`, `IsAccelerating`.
+    - AnimGraph’s `MainState` has OnGround (BlendSpace), InAir (Jump), and Land (Land) states, with transitions as specified.
+
+- **Character Blueprint Update**
+
+  - `Content/Blueprints/BP_PlayerCharacter.uasset` (Mesh assigned to **Remy**, Anim Class set to `ABP_Remy`)
+
+- **Imported Animations**
+
+  - `Content/Anim/Mixamo/Idle` (AnimSequence)
+  - `Content/Anim/Mixamo/Walk` (AnimSequence)
+  - `Content/Anim/Mixamo/Run` (AnimSequence)
+  - `Content/Anim/Mixamo/Jump` (AnimSequence)
+  - `Content/Anim/Mixamo/Land` (AnimSequence)
+
+  **Screenshots / GIF**:
+  ![Previw Clip of animation blending](Source/Workshop_1to5andGame/docs/ezgif-2e491c5ab7d18c.gif)
+
+- **Integration**
+  - When you click **Start** from Main Menu → Workshop2_Level, `BP_PlayerCharacter` now spawns as Remy with full Idle/Walk/Run/Jump/Land functionality.
+
+---
