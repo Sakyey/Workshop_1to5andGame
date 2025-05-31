@@ -10,7 +10,6 @@
 #include "InputAction.h"
 #include "GameFramework/PlayerController.h"
 #include "DrawDebugHelpers.h"
-// #include "InteractionInterface.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -99,8 +98,5 @@ void APlayerCharacter::PrintHealth(){
 	}
 
 	UE_LOG(LogTemp,Warning, TEXT("Current health: %f"), HP);
-}
-void APlayerCharacter::Interact(){
-
 }
 
