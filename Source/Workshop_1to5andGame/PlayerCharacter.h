@@ -19,7 +19,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	virtual void SetUpPlayerInputComponent(UInputComponent* InputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	//Camera boom
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
@@ -33,6 +33,10 @@ protected:
 	class UInputAction* IA_Move;
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputAction* IA_Look;
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	class UInputAction* IA_Jump;
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	class UInputMappingContext* IMC_Player;
 
 	//HAndlers
 	void Move(const FInputActionValue& Value);
@@ -41,8 +45,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
