@@ -185,3 +185,113 @@
   _(Play-In-Editor capture showing character moving/rotating)_
 - **GitHub**:  
   All new assets and code committed to the repository (e.g., [`https://github.com/Sakyey/Workshop_1to5andGame/tree/main`](https://github.com/Sakyey/Workshop_1to5andGame/tree/main))
+
+## Workshop 3
+
+### Objective
+
+- Build a Main Menu (Start / Quit) using UMG
+- Create an in‐game Score HUD that displays a `Score` variable from `BP_PlayerCharacter` and updates at runtime
+- Learn to bind Blueprint UI widgets to character data and switch input modes between UI and game
+
+### Steps
+
+1. **Create “UI” Folder**
+
+   - In the Content Browser, right-click → **New Folder** → name it `UI`.
+   - All Widget Blueprints for Workshop 3 will live here.
+
+2. **Main Menu Widget (`WBP_MainMenu`)**
+
+   1. In `Content/UI`, right-click → **User Interface → Widget Blueprint** → name it `WBP_MainMenu`.
+   2. **Designer**:
+      - Drag a **Canvas Panel** (if not already present).
+      - Inside the Canvas, add two **Button** widgets, anchor both to center.
+        - Rename them to `Button_Start` and `Button_Quit`.
+        - Inside each Button, place a **Text** block (set Text to “Start” and “Quit” respectively).
+        - Set **Is Variable = true** on both Buttons.
+   3. **Graph (Event Construct)**:
+      - From **Event Construct**, call **Set Input Mode UI Only** (Target = **Get Owning Player**).
+      - In **Set Input Mode UI Only** details, check **Show Mouse Cursor**.
+   4. **Graph (Button Logic)**:
+      - **OnClicked (Button_Start)** → **Open Level (“Workshop2_Level”)** → **Set Input Mode Game Only** (Target = **Get Owning Player**).
+      - **OnClicked (Button_Quit)** → **Quit Game** (Target = **Get Owning Player**).
+   5. **Compile & Save** `WBP_MainMenu`.
+
+3. **Create Main Menu Level (`MainMenu_Level`)**
+
+   1. **File → New Level → Default** → **Save As** → `Content/Maps/MainMenu_Level.umap`.
+   2. **Level Blueprint** (Open Level Blueprint):
+      - **Event BeginPlay** → **Create Widget (Class = WBP_MainMenu)** → **Add to Viewport**.
+      - **Get Player Controller (0)** → **Set Show Mouse Cursor = true**.
+   3. **World Settings (MainMenu_Level)**:
+      - Under **GameMode Override**, set to `BP_MainMenuGameMode` (Default Pawn = None).
+   4. **Project Settings → Maps & Modes** (or override per-map):
+      - **Editor Startup Map** = `MainMenu_Level`
+      - **Game Default Map** = `MainMenu_Level`
+      - **Default GameMode** for `MainMenu_Level` = `BP_MainMenuGameMode`
+
+4. **BP_MainMenuGameMode**
+
+   - In `Content/Blueprints`, create a **Blueprint Class → GameModeBase** → name it `BP_MainMenuGameMode`.
+   - **Class Defaults**: set **Default Pawn Class = None** (no player pawn in the Main Menu).
+
+5. **Workshop 2 Level Configuration**
+
+   - Open `Content/Maps/Workshop2_Level.umap`.
+   - In **World Settings**, set **GameMode Override** to `BP_GameMode_Workshop` (the Workshop 2 GameMode with Default Pawn = `BP_PlayerCharacter`).
+   - Save the level.
+
+6. **Score HUD Widget (`WBP_ScoreHUD`)**
+
+   1. In `Content/UI`, right-click → **User Interface → Widget Blueprint** → name it `WBP_ScoreHUD`.
+   2. **Designer**:
+      - Drag a **Text** widget onto the Canvas, anchor to top-left, set **Position (X=10, Y=10)**.
+      - Set the Text’s default content to “Score: 0” and check **Is Variable**.
+      - Rename it to `Text_ScoreLabel`.
+   3. **Graph (Binding Text)**:
+      - Select `Text_ScoreLabel` → in Details → **Content → Bind → Create Binding**.
+      - In the generated function (`Get_Text_ScoreLabel_Text_0`):
+        - **Get Owning Player Pawn** → **Cast to BP_PlayerCharacter** → **Get Score** → **Conv_IntToText** → **Append (“Score: ”)** → **Return**.
+   4. **Compile & Save** `WBP_ScoreHUD`.
+
+7. **Expose `Score` in BP_PlayerCharacter**
+
+   1. Open `BP_PlayerCharacter` in `/Content/Blueprints/`.
+   2. Under **My Blueprint → Variables**, click **+** → name it `Score` → set **Type = Integer** → **Default Value = 0**.
+   3. **Compile & Save** `BP_PlayerCharacter`.
+
+8. **Add HUD to Player Character**
+
+   1. In `BP_PlayerCharacter → Event Graph`, locate **Event BeginPlay** (or add one).
+   2. From **Event BeginPlay** → **Create Widget (Class = WBP_ScoreHUD)** → **Add to Viewport**.
+   3. **Compile & Save** the Blueprint.
+
+9. **Increment Score at Runtime** (Test)
+   1. In `BP_PlayerCharacter → Event Graph`, right-click → type **Key P** → select **Keyboard P** (Legacy).
+   2. From **P (Pressed)** → **Get Score** → **Integer + Integer (Get Score, +1)** → **Set Score**.
+   3. **Compile & Save**.
+   4. **Play** `Workshop2_Level` → press **P** and verify the HUD text changes:
+      ```
+      Score: 0 → Score: 1 → Score: 2 → …
+      ```
+
+### Deliverables
+
+- **Widget Blueprints (Content/UI/)**
+  - `WBP_MainMenu.uasset` (Main Menu with Start/Quit logic)
+  - `WBP_ScoreHUD.uasset` (HUD Text bound to `BP_PlayerCharacter.Score`)
+- **Levels (Content/Maps/)**
+  - `MainMenu_Level.umap` (Main Menu world, Level Blueprint spawns `WBP_MainMenu`)
+  - `Workshop2_Level.umap` (Workshop 2 level, set to `BP_GameMode_Workshop`)
+- **Blueprints (Content/Blueprints/)**
+  - `BP_MainMenuGameMode.uasset` (GameModeBase, Default Pawn None)
+  - `BP_PlayerCharacter.uasset` (updated to expose `Score`, create HUD widget, bind input context)
+- **Input & Mapping (Content/Input/)**
+  - `IA_Move`, `IA_Look`, `IA_Jump`, `IMC_Player` (from Workshop 2)
+- **Screenshots / GIF**:
+  - ![Main Menu on screen (buttons + visible cursor)](Source/Workshop_1to5andGame/docs/workshop3mainmenyvideo.gif)
+  - ![In-game HUD displaying “Score: X” and updating](Source/Workshop_1to5andGame/docs/workshop3scoreincrement.gif)
+- **GitHub**:
+  - All new assets committed (branch `main`):  
+    [`https://github.com/Sakyey/Workshop_1to5andGame`](https://github.com/Sakyey/Workshop_1to5andGame) (verify Workshop 3 commits present)
