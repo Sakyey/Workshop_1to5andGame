@@ -108,8 +108,8 @@
        - `IA_Move` → `APlayerCharacter::Move(const FInputActionValue&)`
        - `IA_Look` → `APlayerCharacter::Look(const FInputActionValue&)`
        - `IA_Jump` → `ACharacter::Jump()` on “Started” and `ACharacter::StopJumping()` on “Completed”
-     - `void Move(const FInputActionValue& Value)` – handler that extracts a Vector2D (X = strafe, Y = forward) and calls `AddMovementInput(...)` accordingly
-     - `void Look(const FInputActionValue& Value)` – handler that extracts a Vector2D (X = yaw, Y = pitch) and calls `AddControllerYawInput(...)` and `AddControllerPitchInput(...)`
+     - `void Move(const FInputActionValue& Value)` – handler that extracts a Vector2D (X = strafe, Y = forward) and calls `AddMovementInput()` accordingly
+     - `void Look(const FInputActionValue& Value)` – handler that extracts a Vector2D (X = yaw, Y = pitch) and calls `AddControllerYawInput()` and `AddControllerPitchInput()`
 
    - **Constructor Changes in `.cpp`**:
      - Instantiate and attach `SpringArm` to the root component, set `TargetArmLength = 300.f` and `bUsePawnControlRotation = true`
