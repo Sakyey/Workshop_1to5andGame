@@ -527,3 +527,137 @@
   - When you click **Start** from Main Menu → Workshop2_Level, `BP_PlayerCharacter` now spawns as Remy with full Idle/Walk/Run/Jump/Land functionality.
 
 ---
+
+## Workshop 5
+
+### 1. Blueprint Interface (BPI_Interaction)
+
+1. **Create BPI_Interaction**
+
+   - In **Content Browser → Blueprints**, right-click → **Blueprints → Blueprint Interface** → name it **BPI_Interaction**.
+   - Double-click `BPI_Interaction`. In the **Functions** panel rename the default function from **NewFunction_0** to **Interact** (no inputs or outputs).
+   - Click **Save** and close the interface.
+
+2. **Create a “Interactable” Actor**
+
+   - In **Content Browser → Blueprints**, right-click → **Blueprint Class → Actor** → name it **BP_InteractableActor**.
+   - Open `BP_InteractableActor`. In the toolbar click **Class Settings**.
+   - Under **Interfaces → Implemented Interfaces**, click **Add**, choose **BPI_Interaction**, then **Compile & Save**.
+   - In the **Components** panel, add a **Static Mesh** component named **Mesh**. In **Details → Static Mesh**, choose the **Cube** asset so you can see the actor in view.
+   - Switch to the **Event Graph**. Under **My Blueprint → Interfaces**, right-click **Interact** → **Implement Function**.
+     - From the **Event Interact** exec pin, drag off and add a **Print String** node (e.g. `"Interacted with Actor!"`).
+     - **Compile & Save**.
+
+   _Result:_ Any time `BP_InteractableActor`’s **Interact** is called, it prints to screen.
+
+---
+
+### 2. Input Action (IA_Interact) & Mapping
+
+1. **Create IA_Interact**
+
+   - In **Content Browser → Input** (create an **Input** folder if none exists), right-click → **Input → Input Action** → name it **IA_Interact**.
+   - Double-click `IA_Interact`. In **Details → Value Type**, select **Boolean**, then **Save & Close**.
+
+2. **Map IA_Interact to the “E” Key**
+   - Open your **IMC_Player** (Input Mapping Context) asset.
+   - Click **+** to add a new mapping row:
+     - **Action** = `IA_Interact`
+     - **Key** = `E` (no modifiers)
+   - Leave **Scale** = 1.0, **Trigger Event** = Triggered.
+   - Click **Save**.
+
+---
+
+### 3. Bind IA_Interact in BP_PlayerCharacter → Raycast Graph
+
+1. **Assign IA_Interact in Class Defaults**
+
+   - Open **BP_PlayerCharacter** (the Blueprint subclass of your C++ `APlayerCharacter`).
+   - In **Class Defaults**, scroll to **Input**, find **IA_Interact**, click its dropdown → select the **IA_Interact** asset.
+   - **Compile & Save**.
+
+2. **Event Graph: “Input Action IA_Interact (Triggered)” Node**
+
+   - In the **Event Graph**, right-click on empty space → type `Input Action IA_Interact` → select **Input Action IA_Interact (Triggered)** under **Enhanced Input**.
+   - From the **Triggered** exec pin, drag off and add **Get Player Controller**.
+
+3. **Get Camera Location (Start)**
+
+4. **Compute Yaw-Only Forward × CamLength**
+
+5. **Compute End = Start + (YawOnlyForward × CamLength)**
+
+6. **Perform Line Trace By Channel**
+
+   - From **Add → Return Value** (yellow), drag off → **Line Trace by Channel**.
+   - Connect
+     - **Start** → Get World Location (yellow)
+     - **End** → Add (Return Value) (yellow)
+   - In the Details of **Line Trace by Channel**:
+     - **Trace Channel** = **Visibility**
+     - **Ignore Self** = ☑
+     - **Draw Debug Type** = **For Duration** (so you see a white line for ~1 sec)
+   - **Compile & Save**.
+
+7. **Break Hit Result → Test “Hit Actor”**
+   - From **Line Trace by Channel → Out Hit**, drag off → **Break Hit Result**.
+   - From **Break Hit Result → Hit Actor** (red pin), drag off → **Is Valid** (green pin).
+   - Also from **Break Hit Result → Hit Actor**, drag off → **Does Implement Interface** → set **Interface = BPI_Interaction** (green pin).
+   - Feed those two green pins into an **AND** node → feed the AND’s output into a **Branch (Condition)**.
+   - From the **Branch True** exec pin → **Interact (BPI_Interaction)** (blue exec).
+     - Connect **Break Hit Result → Hit Actor** into the **Target** input of **Interact**.
+   - **Compile & Save** your Blueprint.
+
+---
+
+### 4. Place & Test in Level
+
+1. **Drag one or more** `BP_InteractableActor` into your **Workshop2_Level** (or whichever map).
+
+   - Position them ~500–1000 units in front of where the player spawns.
+
+2. **Press Play**:
+
+   - Aim the camera so the `BP_InteractableActor` is centered in view (even if the camera is pitched down).
+   - Press **E**. You should see “Interacted with Actor!” printed on screen and a white debug line floating horizontally from the camera.
+   - If you look at floor/empty space and press **E**, nothing happens.
+
+3. (Optionally) Confirm your **BP_HitCube** and **BP_OverlapTrigger** from Workshops 3–4 still work:
+   - Walk into the **BP_HitCube** cube → “Hit by Player!” prints.
+   - Walk into your **BP_OverlapTrigger** sphere → “Overlap with Player!” prints.
+
+---
+
+## Deliverables
+
+- **Blueprint Interface**: `Content/Blueprints/BPI_Interaction.uasset`
+- **Interactable Actor**:
+  - `Content/Blueprints/BP_InteractableActor.uasset`
+  - Implements **BPI_Interaction** → prints a string in **Interact**.
+- **Player Blueprint**:
+  - `Content/Blueprints/BP_PlayerCharacter.uasset`
+  - In **Class Defaults → Input**, `IA_Interact = IA_Interact.uasset`.
+  - Event Graph contains:
+    - **Input Action IA_Interact (Triggered)**
+    - **Get Player Controller → Get FollowCamera → Get World Location** (yellow → Start)
+    - **Get Player Controller → Get Control Rotation → Break Rotator → Make Rotator (Pitch=0) → Get Forward Vector → × CamLength** (green → Forward×Length)
+    - **Add (Start + Forward×Length) → End** (yellow)
+    - **Line Trace by Channel (Start, End; Visibility; Ignore Self; Draw Debug For Duration)**
+    - **Break Hit Result → Hit Actor → Is Valid & Does Implement Interface → Branch → Interact**
+- **Input Assets**:
+  - `Content/Input/IA_Interact.uasset` (Boolean)
+  - `Content/Input/IMC_Player.uasset` (contains mapping “IA_Interact → E”)
+- **Video**:
+  - `docs/raycastworkshop5.gif` showing the red debug line intersecting a `BP_InteractableActor` (cube).
+
+---
+
+## GIF
+
+Below is an example in‐game GIF showing the raycast correctly hitting an interactable cube at a horizontal angle:
+
+![Raycast Hits Interactable](Source/Workshop_1to5andGame/docs/raycastworkshop5.gif)  
+_White debug line originates at the FollowCamera, travels horizontally forward, and intersects the cube (printed message: “Interacted with Actor!”)._
+
+_End of Workshop 5 Section_
