@@ -94,7 +94,7 @@ void APlayerCharacter::Look(const FInputActionValue& Value){
 	FVector2D LookVector = Value.Get<FVector2D>();
 
 	AddControllerYawInput(LookVector.X);
-	AddControllerYawInput(LookVector.Y);
+	AddControllerPitchInput(LookVector.Y);
 }
 void APlayerCharacter::PrintHealth(){
 	if(GEngine){
