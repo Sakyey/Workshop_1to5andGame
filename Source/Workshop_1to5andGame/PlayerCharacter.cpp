@@ -9,7 +9,6 @@
 #include "InputMappingContext.h"
 #include "InputAction.h"
 #include "GameFramework/PlayerController.h"
-#include "DrawDebugHelpers.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -40,14 +39,19 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	if(APlayerController* PlayerController = Cast<APlayerController>(Controller)){
-		if(ULocalPlayer* LP = PlayerController->GetLocalPlayer()){
-			if(UEnhancedInputLocalPlayerSubsystem* Subsystem = LP->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()){
-			Subsystem->AddMappingContext(IMC_Player,0);
-			}
-		}
-		
-	}
+    if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+    {
+        if (ULocalPlayer* LP = PlayerController->GetLocalPlayer())
+        {
+            if (UEnhancedInputLocalPlayerSubsystem* Subsystem = LP->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+            {
+                if (IMC_Player)
+                {
+                    Subsystem->AddMappingContext(IMC_Player, 0);
+                }
+            }
+        }
+    }
 	
 }
 
