@@ -991,6 +991,8 @@
 /Engine/Plugins/VirtualProduction/VirtualCameraCore/Intermediate
 /Engine/Plugins/VirtualProduction/VirtualScouting/Content
 /Engine/Plugins/VirtualProduction/VirtualScouting/Intermediate
+/Engine/Plugins/VisualStudioTools/Docs
+/Engine/Plugins/VisualStudioTools/Intermediate
 /Engine/Plugins/Web/HttpBlueprint/Intermediate
 /Engine/Plugins/WorldMetrics/Intermediate
 /Engine/Plugins/XGEController/Intermediate
@@ -1005,16 +1007,13 @@
 /Engine/Source/Programs/AutomationTool/Win/obj
 /Engine/Source/Programs/AutomationTool/Win/bin
 /Workshop_1to5andGame/.git
+/Workshop_1to5andGame/.github
 /Workshop_1to5andGame/.vs
 /Workshop_1to5andGame/.vscode
 /Workshop_1to5andGame/Content
 /Workshop_1to5andGame/DerivedDataCache
 /Workshop_1to5andGame/Intermediate
 /Workshop_1to5andGame/Saved
-/Workshop_1to5andGame/Plugins/VisualStudioTools/azure-pipelines
-/Workshop_1to5andGame/Plugins/VisualStudioTools/Docs
-/Workshop_1to5andGame/Plugins/VisualStudioTools/Intermediate
-/Workshop_1to5andGame/Plugins/VisualStudioTools/Scripts
 /Workshop_1to5andGame/Intermediate/Build/BuildRulesProjects/Workshop_1to5andGameModuleRules/obj
 /Workshop_1to5andGame/Intermediate/Build/BuildRulesProjects/Workshop_1to5andGameModuleRules/bin
 /Engine/Source/Programs/AutomationTool/XLocLocalization/obj
